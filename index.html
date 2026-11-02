@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es-AR" data-tema="claro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pasatiempos: juegos de lógica infinitos</title>
+  <meta name="description" content="Juegos de lógica y palabras gratis e infinitos: sudoku, crucigrama, wordle, solitario, spelling bee y más.">
+  <link rel="canonical" href="https://pasatiempos.vercel.app/">
+  <meta name="google-site-verification" content="4mXmoZhYUYDqlUEWdnw2aD14NNZf4xo4J_LSAKjLKv0" />
+  <meta name="theme-color" content="#f2f0eb">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1c1c'/%3E%3Cpath d='M11 5v22M21 5v22M5 11h22M5 21h22' stroke='%23f2f0eb' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+
+  <!-- Tipografías (opcional: si no cargan, se usan las del sistema) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&family=Caprasimo&family=Nunito:wght@400;600;700;800;900&family=Lora:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/juegos.css">
+  <link rel="stylesheet" href="css/estilos.css">
+
+  <!-- Estos dos van sin defer para aplicar el tema antes de pintar la página -->
+  <script src="js/storage.js"></script>
+  <script src="js/theme.js"></script>
+
+  <!-- El orden importa: app.js define Pasatiempos y los juegos se registran después -->
+  <script src="js/records.js" defer></script>
+  <script src="js/timer.js" defer></script>
+  <script src="js/diario.js" defer></script>
+  <!-- Nube (Supabase): sin configurar en config-nube.js, no hace nada -->
+  <script src="js/vendor/supabase.js" defer></script>
+  <script src="js/config-nube.js" defer></script>
+  <script src="js/nube.js" defer></script>
+  <script src="js/nube-ui.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/sudoku.js" defer></script>
+  <script src="js/buscaminas.js" defer></script>
+  <script src="js/juego-2048.js" defer></script>
+  <script src="js/palabras-sopa.js" defer></script>
+  <script src="js/sopa-de-letras.js" defer></script>
+  <script src="js/palabras-ahorcado.js" defer></script>
+  <script src="js/ahorcado.js" defer></script>
+  <script src="js/laberinto.js" defer></script>
+  <script src="js/nonogramas.js" defer></script>
+  <script src="js/palabras.js" defer></script>
+  <script src="js/crucigrama.js" defer></script>
+  <script src="js/memoria.js" defer></script>
+  <script src="js/puzzle-deslizante.js" defer></script>
+  <script src="js/torres-de-hanoi.js" defer></script>
+  <script src="js/mastermind.js" defer></script>
+  <script src="js/lights-out.js" defer></script>
+  <script src="js/tateti.js" defer></script>
+  <script src="js/palabras-wordle.js" defer></script>
+  <script src="js/wordle.js" defer></script>
+  <script src="js/anagramas.js" defer></script>
+  <script src="js/spelling-bee.js" defer></script>
+  <script src="js/palabras-conexiones.js" defer></script>
+  <script src="js/conexiones.js" defer></script>
+  <script src="js/solitario.js" defer></script>
+  <script src="js/flow.js" defer></script>
+  <!-- Si sumás un juego nuevo, su script va acá, siempre después de app.js -->
+</head>
+<body>
+  <a class="saltar" id="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="barra">
+    <a class="marca" href="#/" aria-label="Pasatiempos, ir al menú principal">
+      <svg class="marca__logo marca__logo--b" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16 28C6 21 3 15.5 3 11.2 3 7.2 6 4.5 9.6 4.5c2.6 0 4.9 1.5 6.4 3.9 1.5-2.4 3.8-3.9 6.4-3.9 3.6 0 6.6 2.7 6.6 6.7 0 4.3-3 9.8-13 16.8z" fill="currentColor"/>
+      </svg>
+      <svg class="marca__logo marca__logo--a" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <rect x="3" y="3" width="26" height="26"/>
+        <path d="M11.7 3v26M20.3 3v26M3 11.7h26M3 20.3h26"/>
+        <rect x="11.7" y="11.7" width="8.6" height="8.6" fill="currentColor" stroke="none"/>
+      </svg>
+      <span class="marca__texto">Pasatiempos</span>
+    </a>
+
+    <div class="barra__acciones">
+      <button type="button" id="btn-cuenta" class="btn-icono" aria-label="Ingresar" title="Ingresar" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 21a8 8 0 0 1 16 0"/>
+        </svg>
+      </button>
+      <button type="button" id="btn-records" class="btn-icono" aria-label="Ver mejores marcas" title="Mejores marcas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/>
+          <path d="M8 6H5a1 1 0 0 0-1 1c0 2.2 1.8 4 4 4M16 6h3a1 1 0 0 1 1 1c0 2.2-1.8 4-4 4"/>
+          <path d="M12 13v4M8 20h8M10 17h4"/>
+        </svg>
+      </button>
+      <button type="button" id="btn-estilo" class="btn-icono" aria-label="Elegir diseño" title="Elegir diseño" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1 .8-1.7 1.7-1.7H17a4 4 0 0 0 4-4C21 6.5 17 3 12 3z"/>
+          <circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/>
+        </svg>
+      </button>
+      <button type="button" id="btn-tema" class="btn-icono" aria-label="Cambiar tema" title="Cambiar tema">
+        <svg class="icono-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>
+        </svg>
+        <svg class="icono-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="vista-menu" aria-labelledby="titulo-menu">
+      <div class="hero">
+        <h1 id="titulo-menu" tabindex="-1">Pasatiempos: juegos de lógica</h1>
+      </div>
+      <div id="grilla" class="grilla"></div>
+    </section>
+
+    <section id="vista-juego" hidden></section>
+
+    <noscript>
+      <p class="aviso-js">Esta página necesita JavaScript para funcionar. Activalo en tu navegador y recargá.</p>
+    </noscript>
+  </main>
+
+  <footer class="pie">Tus partidas y marcas se guardan solo en este navegador. <a href="privacidad.html">Privacidad</a></footer>
+
+  <dialog id="dlg-records" aria-labelledby="records-titulo">
+    <div class="dlg__caja">
+      <div class="dlg__cab">
+        <h2 id="records-titulo">Mejores marcas</h2>
+        <button type="button" id="btn-cerrar-records" class="btn-icono" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+      </div>
+      <div id="records-lista" class="dlg__cuerpo"></div>
+      <div class="dlg__pie">
+        <button type="button" id="btn-borrar-records" class="btn btn--texto">Borrar todas las marcas</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-estilo" aria-labelledby="estilo-titulo">
+    <div class="dlg__caja">
+      <div class="dlg__cab">
+        <h2 id="estilo-titulo">Diseño</h2>
+        <button type="button" id="btn-cerrar-estilo" class="btn-icono" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="dlg__cuerpo">
+        <ul id="estilo-lista" class="estilos"></ul>
+        <p class="dlg__nota">El modo claro u oscuro se cambia con el botón de la luna o el sol.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-celebracion" aria-labelledby="celebracion-titulo">
+    <div class="celebracion">
+      <div id="celebracion-confeti" class="celebracion__confeti" aria-hidden="true"></div>
+      <h2 id="celebracion-titulo"></h2>
+      <p id="celebracion-mensaje"></p>
+      <p id="celebracion-detalle" class="celebracion__detalle" hidden></p>
+      <div id="celebracion-botones" class="celebracion__botones"></div>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status"></div>
+</body>
+</html>
