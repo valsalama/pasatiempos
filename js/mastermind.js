@@ -89,7 +89,6 @@
     const btnRendirse = el('button', { clase: 'btn btn--texto', texto: 'Rendirme y ver el código', attrs: { type: 'button' } });
     btnRendirse.addEventListener('click', () => rendirse());
     const acciones = el('div', { clase: 'jg__acciones' }, btnBorrar, btnProbar);
-    const nota = el('p', { clase: 'jg__ayuda' });
 
     const raiz = el('div', { clase: 'jg mm' },
       el('div', { clase: 'jg__fila' }, seg, btnNuevo),
@@ -100,8 +99,7 @@
         btnRendirse),
       el('div', { clase: 'mm__marco' }, filas),
       paleta,
-      acciones,
-      nota
+      acciones
     );
     contenedor.append(raiz);
 
@@ -180,7 +178,6 @@
       btnRendirse.hidden = fase !== 'jugando';
       paleta.hidden = fase !== 'jugando';
       acciones.hidden = fase !== 'jugando';
-      nota.textContent = nv.nota + '. Punto lleno: color y lugar correctos. Aro: el color está pero en otro lugar.';
     }
 
     /* --- Guardado --- */

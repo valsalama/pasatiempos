@@ -105,8 +105,7 @@
         el('div', { clase: 'datos' },
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Movimientos' }), valMov),
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Tiempo' }), valReloj))),
-      tablero,
-      el('p', { clase: 'jg__ayuda', texto: 'Tocá dos cartas por vez. Si son iguales, quedan a la vista. El tiempo arranca con la primera carta.' })
+      tablero
     );
     contenedor.append(raiz);
 

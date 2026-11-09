@@ -93,8 +93,7 @@
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Toques' }), valMov),
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Tiempo' }), valReloj)),
         btnPista),
-      el('div', { clase: 'lo__marco' }, tablero),
-      el('p', { clase: 'jg__ayuda', texto: 'Apagá todas las luces. Cada toque cambia la luz elegida y las de al lado. Con las flechas te movés y con Enter o espacio tocás. El tiempo arranca con el primer toque.' })
+      el('div', { clase: 'lo__marco' }, tablero)
     );
     contenedor.append(raiz);
 

@@ -141,8 +141,7 @@
       panal,
       el('div', { clase: 'jg__acciones' }, btnBorrar, btnMezclar, btnEnviar),
       el('h3', { clase: 'bee__titulo', texto: 'Palabras encontradas' }),
-      listaEl,
-      el('p', { clase: 'jg__ayuda', texto: 'Formá palabras de 4 letras o más con las letras de la colmena. Tiene que estar la letra del centro (la destacada) y podés repetir letras. Tocá las letras, deslizá el dedo (o mantené apretado el mouse) pasando por ellas, o usá el teclado; Enter prueba la palabra. Las palabras con las siete letras son pangramas y valen 7 puntos extra. Cuando quieras cortar, tocá Terminar para guardar tu puntaje.' })
+      listaEl
     );
     contenedor.append(raiz);
 

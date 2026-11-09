@@ -112,8 +112,7 @@
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Mejor' }), valMejor),
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'G-E-P' }), valCuenta))),
       el('div', { clase: 'ttt__marco' }, tablero),
-      estado,
-      el('p', { clase: 'jg__ayuda', texto: 'Vos sos la X. Ganar o empatar suma a tu racha; perder la corta y se guarda en las mejores marcas. G-E-P: ganadas, empatadas y perdidas de esta sesión.' })
+      estado
     );
     contenedor.append(raiz);
 

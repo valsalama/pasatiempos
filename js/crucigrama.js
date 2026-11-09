@@ -339,8 +339,7 @@
       marco,
       MODO === 'diario' ? null : el('div', { clase: 'jg__acciones' }, btnPista, btnPalabra),
       teclado,
-      listas,
-      el('p', { clase: 'jg__ayuda', texto: 'En las casillas grises están el número de la definición y una flecha: dice si la palabra sigue hacia la derecha (→) o hacia abajo (↓). Tocá una casilla para elegirla y otra vez para cambiar de dirección; la definición aparece arriba. Con el teclado: letras, flechas, Borrar, Espacio para cambiar de dirección, y Tab (o Shift + Tab) para pasar a la definición siguiente (o a la anterior).' })
+      listas
     );
     contenedor.append(raiz);
 

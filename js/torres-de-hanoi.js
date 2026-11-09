@@ -71,10 +71,12 @@
     const btnNuevo = el('button', { clase: 'btn btn--primario', texto: 'Nuevo juego', attrs: { type: 'button' } });
     btnNuevo.addEventListener('click', () => pedirNueva(n));
 
+    let suprimirClick = false;
     const escena = el('div', { clase: 'han__escena' });
     const torresEl = [0, 1, 2].map((k) => {
       const b = el('button', { clase: 'han__torre', attrs: { type: 'button', 'data-torre': String(k) } });
-      b.addEventListener('click', () => tocar(k));
+      b.addEventListener('click', () => { if (suprimirClick) { suprimirClick = false; return; } tocar(k); });
+      activarArrastre(b, k);
       escena.append(b);
       return b;
     });
@@ -86,8 +88,7 @@
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Movimientos' }), valMov),
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Mínimo' }), valMin),
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Tiempo' }), valReloj))),
-      el('div', { clase: 'han__marco' }, escena),
-      el('p', { clase: 'jg__ayuda', texto: 'Pasá todos los discos a otra torre. Tocá una torre para levantar su disco de arriba y después la torre de destino. También podés usar las teclas 1, 2 y 3. El tiempo arranca con el primer movimiento.' })
+      el('div', { clase: 'han__marco' }, escena)
     );
     contenedor.append(raiz);
 
@@ -210,6 +211,59 @@
           { texto: 'Cerrar' }
         ]
       }), 350);
+    }
+
+    /* --- Arrastre: se agarra el disco de arriba y se lo desliza hasta otra torre --- */
+    function torreBajo(x) {
+      let mejor = -1; let dist = Infinity;
+      torresEl.forEach((t, k) => {
+        const r = t.getBoundingClientRect();
+        const d = x < r.left ? r.left - x : x > r.right ? x - r.right : 0;
+        if (d < dist) { dist = d; mejor = k; }
+      });
+      return mejor;
+    }
+    function activarArrastre(boton, k) {
+      let est = null;
+      boton.addEventListener('pointerdown', (ev) => {
+        if (fase === 'ganado' || (ev.pointerType === 'mouse' && ev.button !== 0)) return;
+        const disco = ev.target.closest ? ev.target.closest('.han__disco') : null;
+        if (!disco || !torres[k].length) return;
+        const arriba = boton.querySelector('.han__pila').lastElementChild;
+        if (disco !== arriba) return;
+        est = { id: ev.pointerId, x0: ev.clientX, y0: ev.clientY, mov: false, disco };
+      });
+      boton.addEventListener('pointermove', (ev) => {
+        if (!est || ev.pointerId !== est.id) return;
+        const dx = ev.clientX - est.x0; const dy = ev.clientY - est.y0;
+        if (!est.mov) {
+          if (Math.hypot(dx, dy) < 7) return;
+          est.mov = true;
+          try { boton.setPointerCapture(est.id); } catch (e) { /* sin captura */ }
+          est.disco.classList.add('arrastrado');
+          boton.classList.add('arrastrando');
+        }
+        est.disco.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+        const o = torreBajo(ev.clientX);
+        torresEl.forEach((t, q) => t.classList.toggle('objetivo', q === o && q !== k));
+      });
+      const soltar = (ev, cancelado) => {
+        if (!est || ev.pointerId !== est.id) return;
+        const e = est; est = null;
+        if (!e.mov) return;
+        try { boton.releasePointerCapture(e.id); } catch (err) { /* ya soltado */ }
+        suprimirClick = true;
+        despues(() => { suprimirClick = false; }, 60);
+        torresEl.forEach((t) => t.classList.remove('objetivo', 'arrastrando'));
+        e.disco.classList.remove('arrastrado');
+        e.disco.style.transform = '';
+        const destino = cancelado ? k : torreBajo(ev.clientX);
+        if (destino === k || destino < 0) { elegida = -1; pintar(); return; }
+        elegida = k;
+        tocar(destino);
+      };
+      boton.addEventListener('pointerup', (ev) => soltar(ev, false));
+      boton.addEventListener('pointercancel', (ev) => soltar(ev, true));
     }
 
     /* --- Entrada --- */

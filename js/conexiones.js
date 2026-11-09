@@ -148,8 +148,7 @@
       filasRes,
       tablero,
       aviso,
-      el('div', { clase: 'jg__acciones' }, btnMezclar, btnSoltar, btnEnviar),
-      el('p', { clase: 'jg__ayuda', texto: 'Encontrá cuatro grupos de cuatro palabras que tengan algo en común. Elegí cuatro palabras y tocá Enviar. Tenés 4 errores como máximo. Los colores indican la dificultad: amarillo es el más fácil y violeta el más rebuscado.' })
+      el('div', { clase: 'jg__acciones' }, btnMezclar, btnSoltar, btnEnviar)
     );
     contenedor.append(raiz);
 

@@ -16,6 +16,7 @@
 
   const MODOS = { 1: 'Robar de a 1', 3: 'Robar de a 3' };
   const ORDEN = ['1', '3'];
+  const DORSOS = ['Rayas', 'Cuadrícula', 'Rombos', 'Puntos', 'Zigzag', 'Cruces'];
   const RANGOS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
   const NOMBRES_PALO = ['picas', 'corazones', 'diamantes', 'tréboles'];
   const PALOS_SVG = [
@@ -91,18 +92,35 @@
     btnDeshacer.addEventListener('click', deshacer);
     btnSubir.addEventListener('click', subirTodas);
 
+    let dorso = String(Almacen.leer('solitario:dorso', '1'));
+    if (!/^[1-6]$/.test(dorso)) dorso = '1';
+    const muestras = DORSOS.map((nombre, i) => {
+      const b = el('button', { clase: 'kl__muestra kl__muestra--' + (i + 1), attrs: { type: 'button', 'aria-label': 'Dorso de las cartas: ' + nombre, 'aria-pressed': 'false', title: nombre } });
+      b.addEventListener('click', () => elegirDorso(String(i + 1)));
+      return b;
+    });
+    const selDorso = el('div', { clase: 'kl__dorsos', attrs: { role: 'group', 'aria-label': 'Dorso de las cartas' } },
+      el('span', { clase: 'kl__dorsos-etq', texto: 'Dorso' }), ...muestras);
+    function elegirDorso(d) {
+      dorso = d;
+      raiz.dataset.dorso = d;
+      muestras.forEach((m, i) => m.setAttribute('aria-pressed', String(String(i + 1) === d)));
+      Almacen.escribir('solitario:dorso', d);
+    }
+
     const mesa = el('div', { clase: 'kl__mesa' });
     const raiz = el('div', { clase: 'jg kl' },
       el('div', { clase: 'jg__fila' }, seg, btnNuevo),
+      el('div', { clase: 'jg__fila' }, selDorso),
       el('div', { clase: 'jg__fila' },
         el('div', { clase: 'datos' },
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Movimientos' }), valMov),
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Tiempo' }), valReloj)),
         el('div', { clase: 'jg__acciones' }, btnDeshacer, btnSubir)),
-      mesa,
-      el('p', { clase: 'jg__ayuda', texto: 'Subí todas las cartas a las pilas de arriba, cada palo del A al K. En las columnas se arma en orden descendente alternando rojo y negro; solo un rey puede ocupar una columna vacía. Tocá una carta para elegirla y después tocá dónde va. Si tocás de nuevo la carta elegida, sube sola a su pila si puede. Tocá el mazo para robar.' })
+      mesa
     );
     contenedor.append(raiz);
+    elegirDorso(dorso);
 
     /* --- Reglas --- */
     function cartasDe(origen) {

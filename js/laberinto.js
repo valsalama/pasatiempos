@@ -194,8 +194,7 @@
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Tiempo' }), valReloj)),
         MODO === 'diario' ? null : btnPista),
       marco,
-      cruz,
-      el('p', { clase: 'jg__ayuda', texto: 'Llevá el cuadrado de la A a la B. Usá las flechas o WASD, los botones, o arrastrá el dedo por los pasillos. El tiempo arranca con el primer paso.' })
+      cruz
     );
     contenedor.append(raiz);
 

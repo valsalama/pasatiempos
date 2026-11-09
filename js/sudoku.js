@@ -337,8 +337,7 @@
         btnPausa),
       marco,
       pad,
-      el('div', { clase: 'jg__acciones' }, btnNotas, btnBorrar, esDiario ? null : btnPista, btnRevisar, btnErrores),
-      el('p', { clase: 'jg__ayuda', texto: 'Tocá una casilla y elegí un número. Con el teclado: números, flechas, Borrar, N para el lápiz y P para pausar.' })
+      el('div', { clase: 'jg__acciones' }, btnNotas, btnBorrar, esDiario ? null : btnPista, btnRevisar, btnErrores)
     );
     contenedor.append(raiz);
 

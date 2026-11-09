@@ -128,8 +128,7 @@
       defEl,
       slots,
       fichas,
-      el('div', { clase: 'jg__acciones' }, btnMezclar, btnBorrar, btnPista, btnSaltar),
-      el('p', { clase: 'jg__ayuda', texto: 'Ordená las letras para formar una palabra. Tocá las letras o escribilas con el teclado (Retroceso borra la última, Enter prueba la palabra). Cada letra vale 10 puntos; la pista (la definición) resta ' + COSTO_PISTA + '.' })
+      el('div', { clase: 'jg__acciones' }, btnMezclar, btnBorrar, btnPista, btnSaltar)
     );
     contenedor.append(raiz);
 

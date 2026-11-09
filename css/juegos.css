@@ -78,7 +78,6 @@
   color: var(--tinta);
 }
 
-.jg__ayuda { margin: 18px 0 0; text-align: center; color: var(--tinta-suave); font-size: .92rem; }
 
 /* ---------- Sudoku ---------- */
 .sdk__marco { position: relative; width: 100%; }
@@ -934,7 +933,11 @@ html[data-tema="oscuro"] .mem__cara { --pl: 68%; }
   background: var(--dc, var(--pal-1));
   transition: transform .15s ease;
 }
+.han__disco { touch-action: none; cursor: grab; }
 .han__disco.levantado { transform: translateY(-14px); }
+.han__disco.arrastrado { position: relative; z-index: 20; transition: none; cursor: grabbing; box-shadow: 4px 6px 0 rgba(0, 0, 0, .25); }
+.han__torre.arrastrando { z-index: 10; }
+.han__torre.objetivo { background: var(--par); outline: 3px dashed var(--acento); outline-offset: -3px; }
 .han__torre.choque { animation: han-no .3s; }
 @keyframes han-no { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
 
@@ -1262,3 +1265,4 @@ html[data-tema="oscuro"] .mem__cara { --pl: 68%; }
 
 /* ---------- Botones sin redondeo (las teclas y selectores de color también) ---------- */
 .wd__tecla, .mm__color, .an__slot, .an__ficha { border-radius: 0; }
+.jg__ayuda { margin: 18px 0 0; text-align: center; color: var(--tinta-suave); }

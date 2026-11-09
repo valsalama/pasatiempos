@@ -183,8 +183,7 @@
       palabraEl,
       estadoEl,
       el('div', { clase: 'jg__acciones ah__acciones' }, esDiario ? null : btnPista, btnSiguiente),
-      teclado,
-      el('p', { clase: 'jg__ayuda', texto: 'Tocá las letras de abajo (o usá el teclado de la compu). Con 6 errores se completa el muñeco y termina la racha. Cada palabra que adivinás suma puntos.' })
+      teclado
     );
     contenedor.append(raiz);
 

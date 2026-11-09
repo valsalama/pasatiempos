@@ -255,8 +255,7 @@
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Tiempo' }), valReloj)),
         el('div', { clase: 'seg' }, btnPintar, btnMarcar)),
       marco,
-      el('div', { clase: 'jg__acciones' }, btnRevisar, MODO === 'diario' ? null : btnPista, btnLimpiar),
-      el('p', { clase: 'jg__ayuda', texto: 'Tocá o arrastrá para pintar. Con "Marcar ✕" anotás las casillas que seguro quedan vacías (en la compu: clic derecho). Los números que se ponen tenues ya están completos. Teclado: flechas, Espacio para pintar y X para marcar.' })
+      el('div', { clase: 'jg__acciones' }, btnRevisar, MODO === 'diario' ? null : btnPista, btnLimpiar)
     );
     contenedor.append(raiz);
 

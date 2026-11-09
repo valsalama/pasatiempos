@@ -194,7 +194,7 @@
     const practicar = nodo('a', 'btn btn--primario', 'Practicar este tablero');
     practicar.href = '#/' + base + '/practica';
     const libre = nodo('a', 'btn', 'Partida libre');
-    libre.href = '#/' + base;
+    libre.href = '#/' + base + '/libre';
     fila.append(practicar, libre);
     if (global.Nube && global.Nube.activa && global.NubeUI) {
       const rank = nodo('button', 'btn', 'Ver ranking de hoy');

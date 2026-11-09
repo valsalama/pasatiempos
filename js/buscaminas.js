@@ -112,8 +112,7 @@
         btnBandera),
       textoEstado,
       marco,
-      aviso,
-      el('p', { clase: 'jg__ayuda', texto: 'Tocá para destapar. Mantené apretado (o activá el modo bandera) para marcar una mina. En la compu, clic derecho. Tocá un número que ya tiene todas sus banderas para destapar las casillas de alrededor.' })
+      aviso
     );
     contenedor.append(raiz);
 

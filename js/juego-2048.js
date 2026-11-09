@@ -65,8 +65,7 @@
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Puntaje' }), valPuntaje),
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Mejor' }), valMejor)),
         MODO === 'diario' ? null : btnNuevo),
-      tablero,
-      el('p', { clase: 'jg__ayuda', texto: 'Deslizá el dedo sobre el tablero o usá las flechas. Cuando dos fichas iguales se juntan, se suman.' })
+      tablero
     );
     contenedor.append(raiz);
 

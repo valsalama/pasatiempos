@@ -1,0 +1,50 @@
+# Pasatiempos
+
+> Sitio web gratuito con 32 juegos de lógica, palabras y cartas. Cada partida se genera al momento, así que los tableros no se terminan. Funciona en el navegador, en celular y compu, sin instalar nada. Hecho por Valentina Salama.
+
+Dirección: https://pasatiempos.vercel.app/
+
+## Qué ofrece
+- Partida libre en todos los juegos, con varios niveles de dificultad cuando corresponde.
+- Desafío del día en algunos juegos: un único tablero para todas las personas ese día, con ranking si se inicia sesión con Google.
+- Las partidas en curso y las mejores marcas se guardan en el navegador. No hace falta cuenta para jugar.
+- Cinco paletas de color, cada una con modo claro y oscuro.
+
+## Juegos
+- Sudoku: Completá la grilla de 9×9 sin repetir números. Cuatro dificultades.
+- Crucigrama autodefinido: Las pistas van dentro del tablero, con flechas.
+- Sopa de letras: Encontrá todas las palabras escondidas. Elegí el tema y el tamaño.
+- Buscaminas: Despejá el tablero sin pisar ninguna mina.
+- 2048: Deslizá las fichas y fusioná números hasta llegar a 2048.
+- Nonogramas: Pintá las casillas siguiendo los números y descubrí el dibujo.
+- Laberinto: Encontrá la salida de laberintos generados al azar.
+- Ahorcado: Adiviná la palabra antes de que se complete el muñeco.
+- Memoria: Encontrá todas las parejas dando vuelta las cartas de a dos.
+- Puzzle deslizante: Deslizá las fichas hasta ordenarlas del 1 en adelante.
+- Torres de Hanoi: Pasá todos los discos a otra torre sin poner uno grande sobre uno chico.
+- Mastermind: Descubrí el código secreto de colores con la menor cantidad de intentos.
+- Lights Out: Apagá todas las luces. Cada toque cambia también a las vecinas.
+- Ta-te-ti: Jugá contra la compu. Sumá partidas seguidas sin perder.
+- Wordle: Adiviná la palabra de 5 letras en 6 intentos.
+- Anagramas: Ordená las letras mezcladas para formar la palabra. Rondas de 10.
+- Spelling Bee: Armá todas las palabras que puedas con siete letras. Una es obligatoria.
+- Conexiones: Agrupá 16 palabras en 4 grupos con algo en común.
+- Solitario Klondike: El solitario clásico de cartas. Subí todo el mazo a las pilas.
+- Flow: Unilos puntos de colores con tuberías y llená todo el tablero.
+- Mahjong solitario: Sacá de a pares las fichas iguales que estén libres hasta despejar el tablero.
+- Criptograma: Descubrí el refrán escondido detrás de un código de letras.
+- Cuatro en línea: Alineá cuatro fichas antes que la máquina.
+- Reversi: Encerrá las fichas rivales para darlas vuelta y quedate con más fichas.
+- Simon dice: Repetí la secuencia de colores cada vez más larga.
+- Pirámide matemática: Cada casilla es la suma de las dos de abajo. Completá la pirámide.
+- Escalera de palabras: Llegá de una palabra a otra cambiando una letra por vez.
+- Sort Liquid: Volcá los líquidos entre tubos hasta que cada uno tenga un solo color.
+- Sokoban: Empujá las cajas hasta dejarlas sobre las marcas.
+- Parking Jam: Deslizá los autos para dejar salir al de color.
+- Loop Line: Dibujá una sola línea cerrada que respete los números.
+- Tangram: Armá la silueta con las siete piezas.
+
+## Datos y privacidad
+- No usa cookies de seguimiento ni analíticas.
+- Con cuenta de Google se guarda solo un apodo y los resultados de los desafíos diarios; la cuenta y sus datos se pueden eliminar desde "Mi cuenta".
+- Política completa: https://pasatiempos.vercel.app/privacidad

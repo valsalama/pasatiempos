@@ -136,8 +136,7 @@
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Movimientos' }), valMov),
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Tiempo' }), valReloj)),
         btnLimpiar),
-      marco,
-      el('p', { clase: 'jg__ayuda', texto: 'Unila de a dos los puntos del mismo color arrastrando el dedo o el mouse, y llená todas las casillas. Las tuberías no se cruzan: si pasás por encima de otra, la cortás. Para borrar un tramo, volvé sobre tu camino.' })
+      marco
     );
     contenedor.append(raiz);
 

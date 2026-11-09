@@ -109,6 +109,48 @@
     'solitario': SVG(
       '<rect x="6" y="9" width="17" height="25" rx="2"/><rect x="25" y="14" width="17" height="25" rx="2"/>' +
       '<path d="M33.5 21.5c-3 3-4 4.3-4 5.8a2 2 0 0 0 3.6 1.1c0 1-.3 1.7-1 2.4h3c-.7-.7-1-1.4-1-2.4a2 2 0 0 0 3.6-1.1c0-1.5-1-2.8-4-5.8z" fill="currentColor" stroke="none"/>'),
+    'mahjong': SVG(
+      '<rect x="7" y="13" width="20" height="28"/><rect x="15" y="7" width="20" height="28"/>' +
+      '<path d="M25 15l5 6-5 6-5-6z" fill="currentColor" stroke="none"/>'),
+    'criptograma': SVG(
+      '<rect x="5" y="8" width="11" height="14" fill="currentColor"/><rect x="18.5" y="8" width="11" height="14"/><rect x="32" y="8" width="11" height="14"/>' +
+      '<path d="M5 31h11M18.5 31h11M32 31h11M5 40h11M18.5 40h11M32 40h11"/>'),
+    'cuatro-en-linea': SVG(
+      '<rect x="5" y="9" width="38" height="32"/>' +
+      '<rect x="10" y="14" width="8" height="8" fill="currentColor"/><rect x="20" y="14" width="8" height="8"/><rect x="30" y="14" width="8" height="8"/>' +
+      '<rect x="10" y="28" width="8" height="8"/><rect x="20" y="28" width="8" height="8" fill="currentColor"/><rect x="30" y="28" width="8" height="8" fill="currentColor"/>'),
+    'reversi': SVG(
+      '<rect x="5" y="5" width="38" height="38"/><path d="M24 5v38M5 24h38"/>' +
+      '<rect x="11" y="11" width="9" height="9" fill="currentColor"/><rect x="28" y="28" width="9" height="9" fill="currentColor"/>'),
+    'simon': SVG(
+      '<rect x="6" y="6" width="17" height="17" fill="currentColor"/><rect x="25" y="6" width="17" height="17"/>' +
+      '<rect x="6" y="25" width="17" height="17"/><rect x="25" y="25" width="17" height="17"/>'),
+    'piramide': SVG(
+      '<rect x="18" y="5" width="12" height="9" fill="currentColor"/>' +
+      '<rect x="12" y="15" width="12" height="9"/><rect x="25" y="15" width="12" height="9"/>' +
+      '<rect x="6" y="25" width="12" height="9"/><rect x="19" y="25" width="12" height="9"/><rect x="32" y="25" width="12" height="9"/>' +
+      '<path d="M6 40h36"/>'),
+    'escalera': SVG(
+      '<rect x="5" y="6" width="11" height="9"/><rect x="18" y="6" width="11" height="9"/><rect x="31" y="6" width="11" height="9"/>' +
+      '<rect x="5" y="19" width="11" height="9"/><rect x="18" y="19" width="11" height="9" fill="currentColor"/><rect x="31" y="19" width="11" height="9"/>' +
+      '<rect x="5" y="32" width="11" height="9"/><rect x="18" y="32" width="11" height="9"/><rect x="31" y="32" width="11" height="9" fill="currentColor"/>'),
+    'sort-liquid': SVG(
+      '<path d="M7 8v32h10V8"/><path d="M19 8v32h10V8"/><path d="M31 8v32h10V8"/>' +
+      '<rect x="9" y="30" width="6" height="8" fill="currentColor" stroke="none"/><rect x="9" y="22" width="6" height="8" fill="currentColor" stroke="none"/>' +
+      '<rect x="21" y="30" width="6" height="8" fill="currentColor" stroke="none"/><rect x="33" y="30" width="6" height="8" fill="currentColor" stroke="none"/><rect x="33" y="22" width="6" height="8" fill="currentColor" stroke="none"/>'),
+    'sokoban': SVG(
+      '<rect x="5" y="5" width="38" height="38"/>' +
+      '<rect x="12" y="12" width="12" height="12" fill="currentColor"/>' +
+      '<rect x="29" y="29" width="9" height="9"/><rect x="31.5" y="31.5" width="4" height="4" fill="currentColor" stroke="none"/>'),
+    'parking-jam': SVG(
+      '<rect x="5" y="5" width="38" height="38"/>' +
+      '<rect x="9" y="19" width="16" height="9" fill="currentColor"/><rect x="29" y="9" width="8" height="17"/><rect x="11" y="31" width="22" height="8"/>' +
+      '<path d="M43 23.5h-0"/>'),
+    'loop-line': SVG(
+      '<path d="M12 12h16v8h8v16H20v-8h-8z" stroke-linejoin="miter" stroke-width="4"/>' +
+      '<rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><rect x="34" y="34" width="4" height="4" fill="currentColor" stroke="none"/>'),
+    'tangram': SVG(
+      '<path d="M6 6h36L24 24z" fill="currentColor"/><path d="M6 6l18 18L6 42z"/><path d="M42 6v18L33 33z"/><path d="M24 24l9 9-9 9z"/><path d="M33 33l9-9v18H24z"/>'),
     'flow': SVG(
       '<rect x="6" y="6" width="36" height="36"/>' +
       '<path d="M15 15v10h10v10h8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>' +
@@ -166,7 +208,7 @@
       desc: 'Jugá contra la compu. Sumá partidas seguidas sin perder.',
       variantes: { facil: 'Fácil', medio: 'Medio', imbatible: 'Imbatible' } },
     { id: 'wordle', categoria: 'palabras', nombre: 'Wordle', hue: 125, etapa: 9, metrica: 'cantidad', unidad: ['intento', 'intentos'],
-      desc: 'Adiviná la palabra de 5 letras en 6 intentos. Hay desafío del día.',
+      desc: 'Adiviná la palabra de 5 letras en 6 intentos.',
       variantes: { general: 'General' } },
     { id: 'anagramas', categoria: 'palabras', nombre: 'Anagramas', hue: 330, etapa: 9, metrica: 'puntaje',
       desc: 'Ordená las letras mezcladas para formar la palabra. Rondas de 10.',
@@ -175,14 +217,50 @@
       desc: 'Armá todas las palabras que puedas con siete letras. Una es obligatoria.',
       variantes: { general: 'General' } },
     { id: 'conexiones', categoria: 'palabras', nombre: 'Conexiones', hue: 290, etapa: 9, metrica: 'cantidad', unidad: ['intento', 'intentos'],
-      desc: 'Agrupá 16 palabras en 4 grupos con algo en común. Hay desafío del día.',
+      desc: 'Agrupá 16 palabras en 4 grupos con algo en común.',
       variantes: { general: 'General' } },
     { id: 'solitario', categoria: 'mesa', nombre: 'Solitario Klondike', hue: 140, etapa: 10, metrica: 'tiempo',
       desc: 'El solitario clásico de cartas. Subí todo el mazo a las pilas.',
       variantes: { 1: 'Robar de a 1', 3: 'Robar de a 3' } },
     { id: 'flow', categoria: 'logica', nombre: 'Flow', hue: 235, etapa: 10, metrica: 'tiempo',
       desc: 'Unilos puntos de colores con tuberías y llená todo el tablero.',
-      variantes: { 5: 'Chico 5×5', 6: 'Mediano 6×6', 7: 'Grande 7×7', 8: 'Muy grande 8×8', 9: 'Enorme 9×9' } }
+      variantes: { 5: 'Chico 5×5', 6: 'Mediano 6×6', 7: 'Grande 7×7', 8: 'Muy grande 8×8', 9: 'Enorme 9×9' } },
+    { id: 'mahjong', categoria: 'mesa', nombre: 'Mahjong solitario', hue: 100, etapa: 11, metrica: 'tiempo',
+      desc: 'Sacá de a pares las fichas iguales que estén libres hasta despejar el tablero.',
+      variantes: { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' } },
+    { id: 'criptograma', categoria: 'palabras', nombre: 'Criptograma', hue: 200, etapa: 11, metrica: 'tiempo',
+      desc: 'Descubrí el refrán escondido detrás de un código de letras.',
+      variantes: { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' } },
+    { id: 'cuatro-en-linea', categoria: 'mesa', nombre: 'Cuatro en línea', hue: 5, etapa: 12, metrica: 'cantidad', unidad: ['jugada', 'jugadas'],
+      desc: 'Alineá cuatro fichas antes que la máquina.',
+      variantes: { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' } },
+    { id: 'reversi', categoria: 'mesa', nombre: 'Reversi', hue: 160, etapa: 12, metrica: 'puntaje',
+      desc: 'Encerrá las fichas rivales para darlas vuelta y quedate con más fichas.',
+      variantes: { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' } },
+    { id: 'simon', categoria: 'mesa', nombre: 'Simon dice', hue: 25, etapa: 12, metrica: 'puntaje',
+      desc: 'Repetí la secuencia de colores cada vez más larga.',
+      variantes: { lento: 'Lento', normal: 'Normal', rapido: 'Rápido' } },
+    { id: 'piramide', categoria: 'logica', nombre: 'Pirámide matemática', hue: 75, etapa: 12, metrica: 'tiempo',
+      desc: 'Cada casilla es la suma de las dos de abajo. Completá la pirámide.',
+      variantes: { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' } },
+    { id: 'escalera', categoria: 'palabras', nombre: 'Escalera de palabras', hue: 255, etapa: 12, metrica: 'cantidad', unidad: ['paso', 'pasos'],
+      desc: 'Llegá de una palabra a otra cambiando una letra por vez.',
+      variantes: { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' } },
+    { id: 'sort-liquid', categoria: 'logica', nombre: 'Sort Liquid', hue: 190, etapa: 12, metrica: 'cantidad', unidad: ['movimiento', 'movimientos'],
+      desc: 'Volcá los líquidos entre tubos hasta que cada uno tenga un solo color.',
+      variantes: { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' } },
+    { id: 'sokoban', categoria: 'logica', nombre: 'Sokoban', hue: 40, etapa: 12, metrica: 'cantidad', unidad: ['paso', 'pasos'],
+      desc: 'Empujá las cajas hasta dejarlas sobre las marcas.',
+      variantes: { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' } },
+    { id: 'parking-jam', categoria: 'logica', nombre: 'Parking Jam', hue: 345, etapa: 12, metrica: 'cantidad', unidad: ['movimiento', 'movimientos'],
+      desc: 'Deslizá los autos para dejar salir al de color.',
+      variantes: { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' } },
+    { id: 'loop-line', categoria: 'logica', nombre: 'Loop Line', hue: 120, etapa: 12, metrica: 'tiempo',
+      desc: 'Dibujá una sola línea cerrada que respete los números.',
+      variantes: { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' } },
+    { id: 'tangram', categoria: 'logica', nombre: 'Tangram', hue: 275, etapa: 12, metrica: 'tiempo',
+      desc: 'Armá la silueta con las siete piezas.',
+      variantes: { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' } }
   ];
   JUEGOS.forEach((j) => { j.icono = ICONOS[j.id]; });
 
@@ -244,13 +322,13 @@
 
   /* ---------- Celebración (ganaste, fin de partida, etc.) ---------- */
   function crearConfeti(capa) {
-    // Cada estilo tiene su propio confeti: forma (un carácter) y colores
+    // Mismo confeti en todas las paletas (cuadrados); cambian los colores
     const MODELOS = {
       diario: { forma: '\u25A0', colores: ['#1f3b5c', '#b0801f', '#5a5954', '#8199b7'] },
-      rosa: { forma: '\u2665', colores: ['#ff6fa5', '#ffb8d2', '#d6336c', '#c3a5ff', '#ffd23f'] },
-      bosque: { forma: '\u2766', colores: ['#2f6b3f', '#c9921a', '#8fcf9a', '#7a4a14'] },
-      terminal: { forma: '\u25AA', colores: ['#5fd068', '#f0b429', '#b8f5bd', '#0a6b1e'] },
-      oceano: { forma: '\u25CF', colores: ['#0b6bcb', '#5db3ff', '#7fd8e0', '#f2b01e'] }
+      rosa: { forma: '\u25A0', colores: ['#ff6fa5', '#ffb8d2', '#d6336c', '#c3a5ff', '#ffd23f'] },
+      bosque: { forma: '\u25A0', colores: ['#2f6b3f', '#c9921a', '#8fcf9a', '#7a4a14'] },
+      terminal: { forma: '\u25A0', colores: ['#5fd068', '#f0b429', '#b8f5bd', '#0a6b1e'] },
+      oceano: { forma: '\u25A0', colores: ['#0b6bcb', '#5db3ff', '#7fd8e0', '#f2b01e'] }
     };
     const modelo = MODELOS[global.Estilo ? global.Estilo.actual() : 'diario'] || MODELOS.diario;
     const colores = modelo.colores;
@@ -329,13 +407,12 @@
     let pie;
     if (!listo) pie = el('span', { clase: 'chip', texto: 'Próximamente, etapa ' + juego.etapa });
     else if (enCurso) pie = el('span', { clase: 'chip chip--marcador', texto: 'Partida en curso' });
-    else pie = el('span', { clase: 'tarjeta__jugar', texto: 'Jugar' });
+    else pie = null;
 
     const tarjeta = el('a', { clase: 'tarjeta', attrs: { href: '#/' + juego.id } },
       el('span', { clase: 'tarjeta__icono', html: juego.icono }),
       el('h2', { clase: 'tarjeta__nombre', texto: juego.nombre }),
-      el('p', { clase: 'tarjeta__desc', texto: juego.desc }),
-      el('div', { clase: 'tarjeta__pie' }, pie)
+      pie ? el('div', { clase: 'tarjeta__pie' }, pie) : null
     );
     tarjeta.style.setProperty('--h', juego.hue);
     return tarjeta;
@@ -343,7 +420,7 @@
 
   /* Libre / Desafío del día, arriba de cada juego que lo tiene */
   function crearSelectorModo(juego, diario) {
-    const libre = el('a', { clase: 'modos__op', texto: 'Partida libre', attrs: { href: '#/' + juego.id } });
+    const libre = el('a', { clase: 'modos__op', texto: 'Partida libre', attrs: { href: '#/' + juego.id + '/libre' } });
     const dia = el('a', { clase: 'modos__op', texto: 'Desafío del día', attrs: { href: '#/' + juego.id + '/diario' } });
     (diario ? dia : libre).setAttribute('aria-current', 'page');
     (diario ? dia : libre).classList.add('activo');
@@ -354,55 +431,35 @@
     return formatearValor(juego, res.valor);
   }
 
-  function crearPanelDiario() {
-    const jugables = JUEGOS.filter((j) => registrados.has(j.id) && typeof registrados.get(j.id).iniciarDiario === 'function');
-    if (!jugables.length || !global.Diario) return null;
-    const hechos = global.Diario.cuantosHoy(jugables.map((j) => j.id));
-    const racha = global.Diario.racha();
-
-    const cab = el('div', { clase: 'dia__cab' },
-      el('div', {},
-        el('h2', { clase: 'dia__titulo', texto: 'Desafío del día', attrs: { id: 'dia-titulo' } }),
-        el('p', { clase: 'dia__fecha', texto: global.Diario.fechaLarga(global.Diario.hoy()) })),
-      el('div', { clase: 'dia__datos' },
-        el('span', { clase: 'chip chip--marcador', texto: hechos + '/' + jugables.length + ' hoy' }),
-        el('span', { clase: 'chip', texto: racha.n ? 'Racha: ' + racha.n + (racha.n === 1 ? ' día' : ' días') : 'Sin racha todavía' })));
-
-    const lista = el('ul', { clase: 'dia__lista' });
-    jugables.forEach((j) => {
-      const res = global.Diario.resultadoDeHoy(j.id);
-      const perdido = !res && global.Diario.cerradoHoy(j.id);
-      const enCurso = !res && !perdido && Guardado.existe(j.id + '-diario');
-      const estado = res ? '✓ ' + textoResultadoDiario(j, res) : perdido ? 'No salió hoy' : enCurso ? 'En curso' : 'Sin jugar';
-      const a = el('a', { clase: 'dia__item' + (res ? ' hecho' : ''), attrs: { href: '#/' + j.id + '/diario' } },
-        el('span', { clase: 'dia__icono', html: j.icono }),
-        el('span', { clase: 'dia__nombre', texto: j.nombre }),
-        el('span', { clase: 'dia__estado', texto: estado }));
-      a.style.setProperty('--h', j.hue);
-      lista.append(el('li', {}, a));
-    });
-    const seccion = el('section', { clase: 'dia', attrs: { 'aria-labelledby': 'dia-titulo' } }, cab, lista);
-    if (global.Nube && global.Nube.activa && global.NubeUI) {
-      const e = global.Nube.estado();
-      const fila = el('div', { clase: 'dia__nube' });
-      const rank = el('button', { clase: 'btn btn--chico', texto: 'Ranking de hoy', attrs: { type: 'button' } });
-      rank.addEventListener('click', () => global.NubeUI.abrirRanking());
-      const cuenta = el('button', { clase: 'btn btn--chico', attrs: { type: 'button' },
-        texto: !e.listo ? 'Cuenta' : e.adentro ? (e.apodo ? 'Hola, ' + e.apodo : 'Elegir apodo') : 'Ingresar' });
-      cuenta.addEventListener('click', () => global.NubeUI.abrirCuenta());
-      fila.append(rank, cuenta);
-      seccion.append(fila);
+  /* Pantalla que aparece al entrar a un juego que tiene desafío del día:
+     se elige entre la partida libre y el desafío de hoy. */
+  function crearEleccion(juego) {
+    const D = global.Diario;
+    let estadoDia = 'Sin jugar';
+    if (D) {
+      const res = D.resultadoDeHoy(juego.id);
+      if (res) estadoDia = 'Resuelto: ' + textoResultadoDiario(juego, res);
+      else if (D.cerradoHoy(juego.id)) estadoDia = 'No salió hoy';
+      else if (Guardado.existe(juego.id + '-diario')) estadoDia = 'En curso';
     }
-    return seccion;
-  }
+    const estadoLibre = Guardado.existe(juego.id) ? 'En curso' : 'Tablero nuevo';
 
-  function refrescarPanelDiario() {
-    const previo = $('#diario-menu');
-    if (!previo) return;
-    const nuevo = crearPanelDiario();
-    if (!nuevo) return;
-    nuevo.id = 'diario-menu';
-    previo.replaceWith(nuevo);
+    const opcion = (href, nombre, estado) => el('a', { clase: 'eleccion__op', attrs: { href } },
+      el('span', { clase: 'eleccion__nombre', texto: nombre }),
+      el('span', { clase: 'eleccion__estado', texto: estado }));
+
+    const caja = el('section', { clase: 'eleccion', attrs: { 'aria-labelledby': 'eleccion-titulo' } },
+      el('h2', { clase: 'eleccion__titulo', texto: '¿Cómo querés jugar?', attrs: { id: 'eleccion-titulo' } }),
+      el('div', { clase: 'eleccion__ops' },
+        opcion('#/' + juego.id + '/libre', 'Partida libre', estadoLibre),
+        opcion('#/' + juego.id + '/diario', 'Desafío del día', estadoDia)));
+    if (D) caja.append(el('p', { clase: 'eleccion__fecha', texto: D.fechaLarga(D.hoy()) }));
+    if (global.Nube && global.Nube.activa && global.NubeUI) {
+      const rank = el('button', { clase: 'btn btn--chico', texto: 'Ranking de hoy', attrs: { type: 'button' } });
+      rank.addEventListener('click', () => global.NubeUI.abrirRanking(juego.id));
+      caja.append(el('div', { clase: 'eleccion__pie' }, rank));
+    }
+    return caja;
   }
 
   /* ---------- Filtros del menú ---------- */
@@ -450,22 +507,16 @@
     $('#vista-menu').hidden = false;
     const grilla = $('#grilla');
     grilla.replaceChildren();
-    const previo = $('#diario-menu');
-    if (previo) previo.remove();
     const filtrosPrevio = $('.filtros-caja');
     if (filtrosPrevio) filtrosPrevio.remove();
-    const panel = crearPanelDiario();
-    if (panel) {
-      panel.id = 'diario-menu';
-      grilla.before(panel);
-    }
     grilla.before(crearFiltros(pintarGrilla));
     pintarGrilla(filtroGuardado());
     document.title = 'Pasatiempos: juegos de lógica infinitos';
   }
 
   /* ---------- Vista de juego ---------- */
-  function mostrarJuego(juego, diario) {
+  function mostrarJuego(juego, modo) {
+    const diario = modo === 'libre' ? false : modo;
     $('#vista-menu').hidden = true;
     const vista = $('#vista-juego');
     vista.hidden = false;
@@ -478,7 +529,19 @@
     const hayDiario = !!(def && typeof def.iniciarDiario === 'function');
     if (diario && !hayDiario) { global.location.replace('#/' + juego.id); return; }
 
-    vista.append(el('div', { clase: 'juego__cab' }, volver, titulo));
+    const cab = el('div', { clase: 'juego__cab' }, volver, titulo);
+    if (global.Tutorial && global.Tutorial.hay(juego.id)) {
+      const ayuda = el('button', { clase: 'btn btn--chico juego__tutorial', texto: 'Cómo se juega', attrs: { type: 'button' } });
+      ayuda.addEventListener('click', () => global.Tutorial.abrir(juego.id, juego.nombre, ayuda));
+      cab.append(ayuda);
+    }
+    vista.append(cab);
+    if (hayDiario && !modo) {
+      vista.append(crearEleccion(juego));
+      document.title = juego.nombre + ' · Pasatiempos';
+      activo = null;
+      return;
+    }
     if (hayDiario) vista.append(crearSelectorModo(juego, diario));
     vista.append(area);
     document.title = (diario ? 'Desafío del día · ' : '') + juego.nombre + ' · Pasatiempos';
@@ -639,8 +702,7 @@
       Estilo.lista().forEach((e) => {
         const btn = el('button', { clase: 'estilo-op', attrs: { type: 'button', 'data-estilo': e.id, 'aria-pressed': String(e.id === actual) } },
           el('span', { clase: 'estilo-op__muestra', attrs: { 'aria-hidden': 'true' } }, el('span'), el('span'), el('span')),
-          el('span', { clase: 'estilo-op__nombre', texto: e.nombre }),
-          el('span', { clase: 'estilo-op__desc', texto: e.desc }));
+          el('span', { clase: 'estilo-op__nombre', texto: e.nombre }));
         btn.addEventListener('click', () => {
           Estilo.establecer(e.id);
           pintar();
@@ -664,7 +726,7 @@
   /* ---------- Navegación por hash (#/sudoku) ---------- */
   function enrutar(moverFoco) {
     limpiarActivo();
-    const coincidencia = global.location.hash.match(/^#\/([a-z0-9-]+)(?:\/(diario|practica))?/);
+    const coincidencia = global.location.hash.match(/^#\/([a-z0-9-]+)(?:\/(diario|practica|libre))?/);
     const juego = coincidencia ? JUEGOS.find((j) => j.id === coincidencia[1]) : null;
 
     if (juego) mostrarJuego(juego, coincidencia[2] || false);
@@ -709,7 +771,6 @@
 
     // Nube (cuenta y ranking): si no está configurada, no hace nada
     if (global.Nube && global.NubeUI) {
-      global.Nube.alCambiar(() => { if (!$('#vista-menu').hidden) refrescarPanelDiario(); });
       global.NubeUI.iniciar();
     }
   }

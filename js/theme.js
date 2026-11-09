@@ -5,8 +5,8 @@
    - Si la persona elige un tema con el botón, queda guardado y deja de seguir al sistema.
    - Pone data-tema="claro|oscuro" en <html>; todos los colores salen de las variables del CSS.
    - Dispara el evento "tema:cambio" en document (detail.tema) por si un juego dibuja en canvas.
-   - Estilo: diseño visual a elegir (diario, rosa, bosque, terminal, oceano). Se guarda y se pone
-     en data-estilo de <html>; los colores y formas de cada uno están en css/estilos.css.
+   - Estilo: paleta de colores a elegir (diario, rosa, bosque, terminal, oceano). Se guarda y se pone
+     en data-estilo de <html>; los colores de cada uno están en css/estilos.css.
      Dispara "estilo:cambio" (detail.estilo).
 
    Este archivo se carga sin defer para evitar el destello de tema equivocado. */
@@ -17,11 +17,11 @@
   const COLOR_BARRA = { claro: '#f2f0eb', oscuro: '#151618' };
   const CLAVE_ESTILO = 'estilo';
   const ESTILOS = [
-    { id: 'diario', nombre: 'Diario', desc: 'Papel de diario, tinta azul y líneas finas.' },
-    { id: 'rosa', nombre: 'Rosa', desc: 'Vichy rosa, contornos gruesos y sombras de sticker.' },
-    { id: 'bosque', nombre: 'Bosque', desc: 'Verdes y marrones, esquinas suaves.' },
-    { id: 'terminal', nombre: 'Terminal', desc: 'Letra monoespaciada y verde sobre negro.' },
-    { id: 'oceano', nombre: 'Océano', desc: 'Azules claros, sombras difusas y bordes redondeados.' }
+    { id: 'diario', nombre: 'Diario', desc: 'Gris papel y azul marino.' },
+    { id: 'rosa', nombre: 'Rosa', desc: 'Rosa claro y ciruela.' },
+    { id: 'bosque', nombre: 'Bosque', desc: 'Verdes y tierra.' },
+    { id: 'terminal', nombre: 'Terminal', desc: 'Verde y ámbar sobre negro.' },
+    { id: 'oceano', nombre: 'Océano', desc: 'Celestes y azul intenso.' }
   ];
   const IDS = ESTILOS.map(function (e) { return e.id; });
   const consulta = global.matchMedia ? global.matchMedia('(prefers-color-scheme: dark)') : null;

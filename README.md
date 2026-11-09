@@ -6,20 +6,22 @@ Sitio en vivo: https://pasatiempos.vercel.app
 
 ## Juegos
 
-20 juegos en total.
+32 juegos en total.
 
-- **Lógica y números:** Sudoku, 2048, Nonogramas, Lights Out, Buscaminas, Torres de Hanoi, Mastermind, Flow, Puzzle deslizante.
-- **Palabras:** Crucigrama autodefinido, Sopa de letras, Ahorcado, Wordle, Anagramas, Spelling Bee, Conexiones.
-- **Clásicos y cartas:** Solitario, Tateti, Memoria, Laberinto.
+- **Lógica y números:** Sudoku, 2048, Nonogramas, Lights Out, Buscaminas, Torres de Hanoi, Mastermind, Flow, Puzzle deslizante, Pirámide matemática, Sort Liquid, Sokoban, Parking Jam, Loop Line, Tangram.
+- **Palabras:** Crucigrama autodefinido, Sopa de letras, Ahorcado, Wordle, Anagramas, Spelling Bee, Conexiones, Criptograma, Escalera de palabras.
+- **Clásicos y cartas:** Solitario, Mahjong solitario, Tateti, Memoria, Laberinto, Cuatro en línea, Reversi, Simon dice.
 
-Además hay desafíos diarios en algunos juegos (Wordle, Conexiones y otros), con el mismo tablero para todos ese día.
+Al entrar a un juego que tiene desafío del día se elige entre partida libre y desafío del día. El desafío es un único tablero para todas las personas ese día.
+
+Cada juego tiene un botón "Cómo se juega" que abre una mini partida guiada: un tablero chico donde se hacen los movimientos paso a paso, con pistas si te trabás (`js/tutorial.js` es el motor y `js/tutoriales-a.js` a `js/tutoriales-d.js` tienen el guion de cada juego).
 
 ## Características
 
 - Partidas generadas aleatoriamente, con varios niveles de dificultad.
 - Autoguardado: podés cerrar la pestaña y retomar la partida donde la dejaste.
 - Controles con mouse, teclado y táctil (tocar, arrastrar y deslizar).
-- Cinco estilos visuales (Diario, Rosa, Bosque, Terminal y Océano), cada uno con modo claro y oscuro. Los colores de los juegos se adaptan al estilo elegido.
+- Cinco paletas de color (Diario, Rosa, Bosque, Terminal y Océano), cada una con modo claro y oscuro. El diseño es el mismo en todas; solo cambian los colores, incluidos los de los juegos.
 - Diseño responsive, probado desde 280 px de ancho hasta pantallas grandes.
 - Ranking opcional en la nube con inicio de sesión de Google (Supabase). El sitio funciona completo sin cuenta; los récords se guardan en el navegador.
 - Sin cookies de seguimiento ni analítica. Ver `privacidad.html`.
@@ -38,7 +40,9 @@ Además hay desafíos diarios en algunos juegos (Wordle, Conexiones y otros), co
 index.html          Página principal
 privacidad.html     Política de privacidad
 vercel.json         Cabeceras de seguridad y URLs limpias
-robots.txt, sitemap.xml
+404.html            Página de error para direcciones que no existen
+robots.txt, sitemap.xml, llms.txt
+og-image.png        Imagen que se ve al compartir el enlace
 css/                Estilos base, estilos temáticos y estilos de los juegos
 js/                 Un archivo por juego, más almacenamiento, récords, tema y nube
 supabase/           Scripts SQL del ranking (schema.sql y actualizaciones)

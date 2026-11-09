@@ -116,8 +116,7 @@
         el('div', { clase: 'datos' },
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Movimientos' }), valMov),
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Tiempo' }), valReloj))),
-      el('div', { clase: 'pz__marco' }, tablero),
-      el('p', { clase: 'jg__ayuda', texto: 'Ordená las fichas del 1 en adelante, con el hueco al final. Tocá una ficha para deslizarla o usá las flechas. El tiempo arranca con el primer movimiento.' })
+      el('div', { clase: 'pz__marco' }, tablero)
     );
     contenedor.append(raiz);
 

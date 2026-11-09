@@ -267,8 +267,7 @@
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Palabras' }), valPalabras),
           el('div', { clase: 'dato' }, el('span', { clase: 'dato__etq', texto: 'Tiempo' }), valReloj)),
         el('div', { clase: 'jg__acciones sl__acciones' }, MODO === 'diario' ? null : btnPista, btnPausa, MODO === 'diario' ? null : btnNuevo)),
-      el('div', { clase: 'sl__zona' }, marco, lista),
-      el('p', { clase: 'jg__ayuda', texto: 'Arrastrá el dedo sobre las letras de una palabra, o tocá la primera y la última. Las palabras pueden ir en horizontal y vertical; en modo difícil también en diagonal y al revés. Con el teclado: flechas y Espacio.' })
+      el('div', { clase: 'sl__zona' }, marco, lista)
     );
     contenedor.append(raiz);
 

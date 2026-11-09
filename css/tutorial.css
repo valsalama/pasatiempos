@@ -1,0 +1,176 @@
+/* ==========================================================
+   Pasatiempos · tutorial.css
+   Diálogo "Cómo se juega" y piezas de las mini partidas guiadas.
+   Todo sale de las variables de estilos.css (sin esquinas redondeadas).
+   ========================================================== */
+
+dialog.tut {
+  width: min(600px, calc(100% - 16px));
+  max-height: min(94dvh, 860px);
+}
+.tut .dlg__cab h2 { font-size: clamp(1.15rem, 4.4vw, 1.5rem); }
+.tut-cuerpo { padding: 14px 16px; overflow-x: hidden; }
+.tut-pie { padding: 10px 12px; }
+.tut-barra { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+
+/* ---------- Guía ---------- */
+.tut-guia { position: sticky; top: -14px; z-index: 3; min-height: 6.4em; margin: -14px -16px 14px; padding: 14px 16px 12px; background: var(--superficie); border-bottom: var(--g-fina) var(--linea-estilo) var(--borde); }
+.tut-paso { margin: 0 0 4px; color: var(--tinta-suave); font-size: .85rem; letter-spacing: var(--ls-etq); text-transform: uppercase; }
+.tut-texto { margin: 0 0 6px; font-size: 1.05rem; font-weight: var(--w-fuerte); line-height: 1.35; }
+.tut-bien { margin: 0 0 6px; padding: 6px 10px; background: var(--acierto-f); border-left: 4px solid var(--acierto-b); color: var(--acierto-t); font-size: .95rem; }
+.tut-aviso { margin: 0; padding: 6px 10px; background: var(--superficie-2); border-left: 4px solid var(--contorno); font-size: .95rem; }
+.tut-guia p[hidden] { display: none; }
+
+/* ---------- Escena ---------- */
+.tut-escena { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.tut-grupo { width: 100%; display: flex; flex-direction: column; align-items: center; }
+.tut-rotulo { margin: 0 0 4px; color: var(--tinta-suave); font-size: .85rem; }
+.tut-rej {
+  --tam: 56px;
+  display: grid;
+  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  gap: var(--gap-tut, 3px);
+  width: 100%;
+  max-width: calc(var(--n) * var(--tam) + (var(--n) - 1) * 3px);
+}
+.tut-grupo--plana .tut-rej { max-width: 100%; }
+.tut-grupo--chico .tut-rej { --tam: 40px; }
+.tut-grupo--medio .tut-rej { --tam: 48px; }
+.tut-grupo--grande .tut-rej { --tam: 64px; }
+.tut-grupo--junto .tut-rej { gap: 0; }
+
+/* ---------- Celda base ---------- */
+.tc {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  aspect-ratio: 1;
+  padding: 0;
+  border: var(--g) solid var(--contorno);
+  border-radius: 0;
+  background: var(--superficie);
+  color: var(--tinta);
+  font: inherit;
+  font-size: clamp(1rem, 4.6vw, 1.45rem);
+  font-weight: var(--w-fuerte);
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.tut-grupo--plana .tc { aspect-ratio: auto; min-height: 46px; padding: 6px 4px; font-size: clamp(.68rem, 2.9vw, .95rem); line-height: 1.15; text-align: center; overflow-wrap: break-word; }
+.tc:hover:not(.tc--inerte):not(.vacia) { filter: brightness(.93); }
+.tc--inerte { cursor: default; }
+
+/* Lo que hay que tocar ahora */
+.tut-objetivo {
+  outline: 4px solid var(--acento);
+  outline-offset: -4px;
+  z-index: 1;
+  animation: tut-latido 1.4s ease-in-out infinite;
+}
+@keyframes tut-latido { 0%, 100% { outline-color: var(--acento); } 50% { outline-color: transparent; } }
+@media (prefers-reduced-motion: reduce) { .tut-objetivo { animation: none; } }
+
+/* Estados comunes */
+.tc.fija { background: var(--superficie-2); }
+.tc.sel { background: var(--marcador); color: var(--sobre-marcador); }
+.tc.igual { background: var(--igual); }
+.tc.ok { background: var(--acierto-f); color: var(--acierto-t); border-color: var(--acierto-b); }
+.tc.mal { background: var(--error-fondo); color: var(--error-texto); }
+.tc.oscura { background: var(--tinta); color: var(--hoja); border-color: var(--tinta); }
+.tc.acento { background: var(--acento); color: var(--sobre-acento); border-color: var(--acento); }
+.tc.vacia { background: transparent; border-color: transparent; cursor: default; }
+.tc.suave { color: var(--tinta-suave); }
+.tc.grande { font-size: clamp(1.3rem, 6vw, 2rem); }
+.tc.chica { font-size: clamp(.7rem, 2.8vw, .9rem); font-weight: 400; }
+.tc.sinborde { border-color: transparent; }
+.tc.pista { background: var(--superficie-2); color: var(--tinta-suave); font-size: clamp(.7rem, 3vw, .95rem); }
+
+/* Paleta del estilo elegido */
+.tc.k1 { --pc: var(--pal-1); } .tc.k2 { --pc: var(--pal-2); } .tc.k3 { --pc: var(--pal-3); }
+.tc.k4 { --pc: var(--pal-4); } .tc.k5 { --pc: var(--pal-5); } .tc.k6 { --pc: var(--pal-6); }
+.tc.k7 { --pc: var(--pal-7); } .tc.k8 { --pc: var(--pal-8); } .tc.k9 { --pc: var(--pal-9); }
+.tc.k1, .tc.k2, .tc.k3, .tc.k4, .tc.k5, .tc.k6, .tc.k7, .tc.k8, .tc.k9 { background: var(--pc, #888); border-color: var(--contorno); color: #1c1c1c; }
+@supports (color: oklch(from red l c h)) {
+  .tc.k1, .tc.k2, .tc.k3, .tc.k4, .tc.k5, .tc.k6, .tc.k7, .tc.k8, .tc.k9 { color: oklch(from var(--pc, #888) calc((0.66 - l) * 1000) 0 0); }
+}
+
+/* ---------- Casillas de juegos de números y tableros ---------- */
+.tc.bloque-der { border-right-width: var(--g-box); }
+.tc.bloque-aba { border-bottom-width: var(--g-box); }
+.tc.mina::after { content: ""; width: 42%; height: 42%; background: var(--tinta); }
+.tc.bandera::after { content: ""; width: 0; height: 0; border-left: 10px solid var(--bandera); border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+.tc.tapada { background: var(--superficie-2); border-width: 2px; }
+.tc.abierta { background: var(--superficie); border-color: var(--borde); }
+.tc.n1 { color: var(--n1); } .tc.n2 { color: var(--acierto-t); } .tc.n3 { color: var(--error-texto); }
+
+/* Laberinto: paredes con bordes gruesos */
+.tc.pn { border-top-width: 4px; } .tc.ps { border-bottom-width: 4px; }
+.tc.pe { border-right-width: 4px; } .tc.po { border-left-width: 4px; }
+.tut-grupo--lab .tc { border-color: var(--borde); }
+.tut-grupo--lab .tc.pn { border-top-color: var(--contorno); } .tut-grupo--lab .tc.ps { border-bottom-color: var(--contorno); }
+.tut-grupo--lab .tc.pe { border-right-color: var(--contorno); } .tut-grupo--lab .tc.po { border-left-color: var(--contorno); }
+.tc.recorrido { background: var(--marcador); color: var(--sobre-marcador); }
+.tc.camino { background: var(--igual); }
+
+/* 2048 */
+.tc.v2 { background: var(--superficie-2); }
+.tc.v4 { background: var(--igual); }
+.tc.v8 { background: var(--marcador); color: var(--sobre-marcador); }
+.tc.v16 { background: var(--acento); color: var(--sobre-acento); }
+
+/* Memoria */
+.tc.hecha { opacity: .55; }
+
+/* Hanoi */
+.tc.torre { aspect-ratio: auto; min-height: 150px; flex-direction: column; justify-content: flex-end; gap: 3px; padding: 6px 4px; background: var(--superficie); }
+.tc.torre::before { content: ""; position: absolute; left: 50%; bottom: 0; width: 6px; height: 88%; margin-left: -3px; background: var(--borde); }
+.tc.torre span { position: relative; display: block; height: 18px; background: var(--acento); border: var(--g) solid var(--contorno); }
+.tc.torre .d1 { width: 34%; } .tc.torre .d2 { width: 54%; } .tc.torre .d3 { width: 76%; } .tc.torre .d4 { width: 94%; }
+.tc.torre .alzado { background: var(--marcador); }
+.tc.torre.sel { background: var(--superficie-2); color: inherit; }
+
+/* Cartas */
+.tc.carta { aspect-ratio: 5 / 7; flex-direction: column; font-size: clamp(.8rem, 3.6vw, 1.1rem); background: #fbfaf7; color: #1c1c1c; }
+.tc.carta.rojo { color: #b3261e; }
+.tc.carta.sel { background: var(--marcador); color: var(--sobre-marcador); }
+.tc.carta.sel.rojo { color: #8a1b14; }
+.tc.carta.dorso { background: var(--acento); color: var(--sobre-acento); }
+.tc.carta.hueco { background: transparent; border-style: dashed; color: var(--tinta-suave); }
+
+/* Teclados de letras */
+.tc.tecla { aspect-ratio: 4 / 5; font-size: clamp(.85rem, 3.8vw, 1.1rem); }
+.tc.tecla.usada { background: var(--superficie-2); color: var(--tinta-suave); }
+.tc.letra-ok { background: var(--acierto-f); border-color: var(--acierto-b); color: var(--acierto-t); }
+.tc.letra-casi { background: var(--marcador); color: var(--sobre-marcador); }
+.tc.letra-no { background: var(--superficie-2); color: var(--tinta-suave); }
+
+/* Controles con texto largo */
+.tc.boton { aspect-ratio: auto; min-height: 46px; padding: 0 14px; font-size: .95rem; }
+
+@media (max-width: 380px) {
+  .tut-cuerpo { padding: 12px 10px; }
+  .tut-guia { margin: -12px -10px 12px; padding: 12px 10px 10px; top: -12px; }
+  .tut-rej { gap: 2px; }
+}
+
+/* Fichas de mahjong y letras del criptograma en los tutoriales */
+.tc.dim { opacity: .5; }
+.tc.elegida { outline: 4px solid var(--contorno); outline-offset: -4px; }
+.tc.cifra { aspect-ratio: auto; min-height: 36px; font-size: clamp(.9rem, 4vw, 1.2rem); }
+.tc.res { aspect-ratio: auto; min-height: 40px; border-width: 0 0 2px; background: transparent; }
+.tut-grupo--junto.tut-grupo--cifra .tut-rej { max-width: 100%; }
+
+/* ---------- Juegos de la etapa 12 ---------- */
+.tc.sk-meta { box-shadow: inset 0 0 0 4px var(--superficie), inset 0 0 0 7px var(--acento); }
+.tc.elegida { outline: 3px solid var(--marcador); outline-offset: -3px; }
+
+/* Sort Liquid: tubos con segmentos de color (de abajo hacia arriba) */
+.tc.tubo-t { aspect-ratio: auto; min-height: 150px; flex-direction: column-reverse; justify-content: flex-start; gap: 3px; padding: 6px 8px; background: var(--superficie); }
+.tc.tubo-t span { display: block; width: 100%; height: 24px; flex: none; }
+.tc.tubo-t .s1 { background: var(--pal-1); } .tc.tubo-t .s2 { background: var(--pal-2); } .tc.tubo-t .s3 { background: var(--pal-3); }
+.tc.tubo-t .s4 { background: var(--pal-4); }
+.tc.tubo-t.sel { background: var(--superficie-2); color: inherit; }

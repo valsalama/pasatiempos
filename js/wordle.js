@@ -110,8 +110,7 @@
         (MODO === 'diario') ? null : btnNuevo),
       grilla,
       aviso,
-      teclado,
-      el('p', { clase: 'jg__ayuda', texto: 'Adiviná la palabra de 5 letras en 6 intentos. Verde: la letra está en su lugar. Amarillo: está, pero en otro lugar. Gris: no está. No hace falta poner tildes. Podés escribir con el teclado o tocar las teclas.' })
+      teclado
     );
     contenedor.append(raiz);
 
