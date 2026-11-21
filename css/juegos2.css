@@ -84,7 +84,7 @@
    Juegos de la etapa 12: Cuatro en línea, Reversi, Simon, Pirámide, Escalera de palabras,
    Sort Liquid, Sokoban, Parking Jam, Loop Line y Tangram.
    ========================================================== */
-.c4__estado, .rv__estado, .sm__estado, .es__aviso, .sl__aviso, .sk__aviso, .pk__aviso, .ll__aviso, .tg__aviso {
+.c4__estado, .rv__estado, .sm__estado, .es__aviso, .lq__aviso, .sk__aviso, .pk__aviso, .ll__aviso, .tg__aviso {
   margin: 12px 0 0;
   min-height: 1.5em;
   text-align: center;
@@ -181,28 +181,28 @@
 .es__campo:disabled { opacity: .6; }
 
 /* ---------- Sort Liquid ---------- */
-.sl { max-width: 520px; }
-.sl__marco { padding: 28px 10px 14px; border: var(--g) solid var(--contorno); background: var(--superficie-2); }
-.sl__tubos { position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(42px, 1fr)); gap: 18px 8px; justify-items: center; }
-.sl__tubo { position: relative; display: flex; flex-direction: column-reverse; gap: 0; width: min(100%, 52px); padding: 4px; border: var(--g) solid var(--contorno); border-radius: 0; background: var(--superficie); cursor: pointer; transition: transform .24s ease; -webkit-tap-highlight-color: transparent; }
-.sl__tubo::after { content: ""; position: absolute; top: 6px; bottom: 6px; left: 9px; width: 4px; background: rgba(255, 255, 255, .45); pointer-events: none; }
-.sl__tubo--sel { transform: translateY(-14px); outline: 3px solid var(--marcador); outline-offset: 1px; }
-.sl__tubo--vierte { z-index: 5; outline: none; }
-.sl__tubo--listo { border-color: var(--acierto-b); }
-.sl__tubo--pista { outline: 3px solid var(--acento); outline-offset: 2px; }
-.sl__tubo:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
-.sl__seg { display: block; height: clamp(24px, 6.6vw, 34px); background: transparent; transform-origin: 50% 100%; }
-.sl__seg--c1 { background: var(--pal-1); } .sl__seg--c2 { background: var(--pal-2); } .sl__seg--c3 { background: var(--pal-3); }
-.sl__seg--c4 { background: var(--pal-4); } .sl__seg--c5 { background: var(--pal-5); } .sl__seg--c6 { background: var(--pal-6); }
-.sl__seg--c7 { background: var(--pal-7); } .sl__seg--c8 { background: var(--pal-8); } .sl__seg--c9 { background: var(--pal-9); }
-.sl__chorro { position: absolute; z-index: 4; width: 6px; pointer-events: none; transform: scaleY(0); transform-origin: 50% 0; }
-.sl__chorro--cae { animation: sl-chorro .26s ease-in forwards; }
-.sl__chorro--corta { transform: scaleY(1); transform-origin: 50% 100%; animation: sl-chorro-fin .3s ease-in forwards; }
-@keyframes sl-chorro { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-@keyframes sl-chorro-fin { from { transform: scaleY(1); } to { transform: scaleY(0); } }
-@keyframes sl-vaciar { from { transform: scaleY(1); } to { transform: scaleY(0); } }
-@keyframes sl-llenar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-@media (prefers-reduced-motion: reduce) { .sl__tubo { transition: none; } }
+.lq { max-width: 520px; }
+.lq__marco { padding: 28px 10px 14px; border: var(--g) solid var(--contorno); background: var(--superficie-2); }
+.lq__tubos { position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(42px, 1fr)); gap: 18px 8px; justify-items: center; }
+.lq__tubo { position: relative; display: flex; flex-direction: column-reverse; gap: 0; width: min(100%, 52px); padding: 4px; border: var(--g) solid var(--contorno); border-radius: 0; background: var(--superficie); cursor: pointer; transition: transform .24s ease; -webkit-tap-highlight-color: transparent; }
+.lq__tubo::after { content: ""; position: absolute; top: 6px; bottom: 6px; left: 9px; width: 4px; background: rgba(255, 255, 255, .45); pointer-events: none; }
+.lq__tubo--sel { transform: translateY(-14px); outline: 3px solid var(--marcador); outline-offset: 1px; }
+.lq__tubo--vierte { z-index: 5; outline: none; }
+.lq__tubo--listo { border-color: var(--acierto-b); }
+.lq__tubo--pista { outline: 3px solid var(--acento); outline-offset: 2px; }
+.lq__tubo:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+.lq__seg { display: block; height: clamp(24px, 6.6vw, 34px); background: transparent; transform-origin: 50% 100%; }
+.lq__seg--c1 { background: var(--pal-1); } .lq__seg--c2 { background: var(--pal-2); } .lq__seg--c3 { background: var(--pal-3); }
+.lq__seg--c4 { background: var(--pal-4); } .lq__seg--c5 { background: var(--pal-5); } .lq__seg--c6 { background: var(--pal-6); }
+.lq__seg--c7 { background: var(--pal-7); } .lq__seg--c8 { background: var(--pal-8); } .lq__seg--c9 { background: var(--pal-9); }
+.lq__chorro { position: absolute; z-index: 4; width: 6px; pointer-events: none; transform: scaleY(0); transform-origin: 50% 0; }
+.lq__chorro--cae { animation: lq-chorro .26s ease-in forwards; }
+.lq__chorro--corta { transform: scaleY(1); transform-origin: 50% 100%; animation: lq-chorro-fin .3s ease-in forwards; }
+@keyframes lq-chorro { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes lq-chorro-fin { from { transform: scaleY(1); } to { transform: scaleY(0); } }
+@keyframes lq-vaciar { from { transform: scaleY(1); } to { transform: scaleY(0); } }
+@keyframes lq-llenar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@media (prefers-reduced-motion: reduce) { .lq__tubo { transition: none; } }
 
 /* ---------- Sokoban ---------- */
 .sk { max-width: 520px; }

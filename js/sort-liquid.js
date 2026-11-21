@@ -115,14 +115,14 @@
     let pistaMov = null;
     let anim = null; // volcado en curso: { timers, i, j }
 
-    const zona = el('div', { clase: 'sl__tubos', attrs: { role: 'group', 'aria-label': 'Tubos' } });
+    const zona = el('div', { clase: 'lq__tubos', attrs: { role: 'group', 'aria-label': 'Tubos' } });
     const reducido = () => !!(global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches);
-    const aviso = el('p', { clase: 'sl__aviso', attrs: { role: 'status', 'aria-live': 'polite' } });
+    const aviso = el('p', { clase: 'lq__aviso', attrs: { role: 'status', 'aria-live': 'polite' } });
 
     const base = global.BaseJuego.montar({
       id: ID,
       contenedor,
-      clase: 'sl',
+      clase: 'lq',
       niveles: NIVELES,
       orden: ORDEN,
       metrica: 'cantidad',
@@ -134,7 +134,7 @@
         { id: 'deshacer', texto: 'Deshacer', alClick: () => deshacer() },
         { id: 'pista', texto: 'Pista', alClick: () => pista() }
       ],
-      cuerpo: [el('div', { clase: 'sl__marco' }, zona), aviso],
+      cuerpo: [el('div', { clase: 'lq__marco' }, zona), aviso],
       hayAvance: () => hist.length > 0,
       nueva(nivel) { poner(generar(nivel), []); },
       cargar(nivel, ex) { poner(ex.tubos, ex.hist); },
@@ -155,8 +155,8 @@
       tubos = t.slice(); hist = h.map((x) => x.slice()); sel = -1; pistaMov = null;
       zona.replaceChildren();
       botones = tubos.map((_, i) => {
-        const b = el('button', { clase: 'sl__tubo', attrs: { type: 'button' } });
-        for (let k = 0; k < CAP; k++) b.append(el('span', { clase: 'sl__seg' }));
+        const b = el('button', { clase: 'lq__tubo', attrs: { type: 'button' } });
+        for (let k = 0; k < CAP; k++) b.append(el('span', { clase: 'lq__seg' }));
         b.addEventListener('click', () => tocar(i));
         zona.append(b);
         return b;
@@ -170,13 +170,13 @@
       tubos.forEach((t, i) => {
         const b = botones[i];
         const completo = t.length === CAP && tope(t).n === CAP;
-        b.className = 'sl__tubo' + (i === sel ? ' sl__tubo--sel' : '') + (completo ? ' sl__tubo--listo' : '') +
-          (pistaMov && (pistaMov[0] === i || pistaMov[1] === i) ? ' sl__tubo--pista' : '');
+        b.className = 'lq__tubo' + (i === sel ? ' lq__tubo--sel' : '') + (completo ? ' lq__tubo--listo' : '') +
+          (pistaMov && (pistaMov[0] === i || pistaMov[1] === i) ? ' lq__tubo--pista' : '');
         const segs = b.children;
         for (let k = 0; k < CAP; k++) {
           const c = t[k];
           // k = 0 es la base; los segmentos se dibujan de abajo hacia arriba por el CSS (column-reverse)
-          segs[k].className = 'sl__seg' + (c !== undefined ? ' sl__seg--c' + (Number(c) + 1) : '');
+          segs[k].className = 'lq__seg' + (c !== undefined ? ' lq__seg--c' + (Number(c) + 1) : '');
         }
         b.setAttribute('aria-label', 'Tubo ' + (i + 1) + ', ' + (t.length ? 'colores de abajo hacia arriba: ' + t.split('').map((c) => Number(c) + 1).join(', ') : 'vacío') + (completo ? ', completo' : ''));
       });
@@ -210,7 +210,7 @@
       const dy = (dr.top - 14 - picoY) - (or.top + or.height / 2);
       const segH = origen.children[0].getBoundingClientRect().height;
       const nivelDestino = dr.bottom - 6 - antes[a].length * segH;
-      const chorro = el('span', { clase: 'sl__chorro sl__seg--c' + (Number(color) + 1), attrs: { 'aria-hidden': 'true' } });
+      const chorro = el('span', { clase: 'lq__chorro lq__seg--c' + (Number(color) + 1), attrs: { 'aria-hidden': 'true' } });
       chorro.style.left = (dr.left + dr.width / 2 - zr.left - 3) + 'px';
       chorro.style.top = (dr.top - 6 - zr.top) + 'px';
       chorro.style.height = Math.max(8, nivelDestino - dr.top + 6) + 'px';
@@ -220,31 +220,31 @@
       const topeO = antes[de].length;
       origen.style.zIndex = '5';
       origen.style.transform = 'translate(' + dx + 'px,' + dy + 'px) rotate(' + (lado * 62) + 'deg)';
-      origen.classList.add('sl__tubo--vierte');
+      origen.classList.add('lq__tubo--vierte');
       const timers = [];
       const limpiar = () => {
         origen.style.transform = ''; origen.style.zIndex = '';
-        origen.classList.remove('sl__tubo--vierte');
+        origen.classList.remove('lq__tubo--vierte');
         for (let k = 0; k < segsO.length; k++) { segsO[k].style.animation = ''; }
         for (let k = 0; k < segsD.length; k++) { segsD[k].style.animation = ''; }
         if (chorro.parentNode) chorro.remove();
       };
       anim = { timers, limpiar };
       timers.push(setTimeout(() => {
-        chorro.classList.add('sl__chorro--cae');
+        chorro.classList.add('lq__chorro--cae');
         for (let k = 0; k < n; k++) {
           const s = segsO[topeO - 1 - k];
-          if (s) s.style.animation = 'sl-vaciar .34s ' + (k * 0.12) + 's ease-in forwards';
+          if (s) s.style.animation = 'lq-vaciar .34s ' + (k * 0.12) + 's ease-in forwards';
         }
         // destino: se pinta con el estado nuevo y los segmentos que llegan suben de a poco
         const t = tubos[a];
         for (let k = 0; k < CAP; k++) {
           const c = t[k];
-          segsD[k].className = 'sl__seg' + (c !== undefined ? ' sl__seg--c' + (Number(c) + 1) : '');
-          if (k >= antes[a].length && c !== undefined) segsD[k].style.animation = 'sl-llenar .34s ' + ((k - antes[a].length) * 0.12 + 0.08) + 's ease-out backwards';
+          segsD[k].className = 'lq__seg' + (c !== undefined ? ' lq__seg--c' + (Number(c) + 1) : '');
+          if (k >= antes[a].length && c !== undefined) segsD[k].style.animation = 'lq-llenar .34s ' + ((k - antes[a].length) * 0.12 + 0.08) + 's ease-out backwards';
         }
       }, 260));
-      timers.push(setTimeout(() => { chorro.classList.add('sl__chorro--corta'); }, 520));
+      timers.push(setTimeout(() => { chorro.classList.add('lq__chorro--corta'); }, 520));
       timers.push(setTimeout(() => { origen.style.transform = ''; origen.style.zIndex = '5'; }, 560));
       timers.push(setTimeout(() => { limpiar(); anim = null; pintar(); }, 820));
     }
