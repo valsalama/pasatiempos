@@ -327,12 +327,13 @@
 /* ---------- Sopa de letras ---------- */
 .sl__config { justify-content: center; }
 .sl__acciones { margin-top: 0; }
-.sl__zona { display: grid; width: 100%; gap: 18px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+.sl__zona { display: grid !important; width: 100% !important; max-width: 1080px; margin-inline: auto; gap: 18px; grid-template-columns: minmax(0, 1fr); align-items: start; }
 
 .sl__marco {
   position: relative;
-  width: 100%;
-  max-width: 640px;
+  width: 100% !important;
+  max-width: 720px !important;
+  min-width: 0;
   margin-inline: auto;
   padding: var(--pad-marco);
   border: var(--g) solid var(--contorno);
@@ -398,7 +399,7 @@
 }
 
 @media (min-width: 880px) {
-  .sl__zona { grid-template-columns: minmax(0, 1fr) 240px; }
+  .sl__zona { grid-template-columns: minmax(0, 1fr) 240px !important; }
   .sl__lista { justify-content: flex-start; flex-direction: column; flex-wrap: nowrap; gap: 6px; }
   .sl__palabra { border-radius: var(--r-palabra); }
 }
