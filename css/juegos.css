@@ -327,7 +327,7 @@
 /* ---------- Sopa de letras ---------- */
 .sl__config { justify-content: center; }
 .sl__acciones { margin-top: 0; }
-.sl__zona { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+.sl__zona { display: grid; width: 100%; gap: 18px; grid-template-columns: minmax(0, 1fr); align-items: start; }
 
 .sl__marco {
   position: relative;
